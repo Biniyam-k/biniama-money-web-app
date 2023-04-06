@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 export default function Header() {
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -24,7 +25,8 @@ export default function Header() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         ACT Money Transfer
                     </Typography>
-                    <Button color="inherit">Show Profile</Button>
+                    <Button variant="contained" href="/">List Accounts</Button>
+                    <Button variant="contained" href="/create">Create Account</Button>
                 </Toolbar>
             </AppBar>
         </Box>

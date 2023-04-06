@@ -58,34 +58,8 @@ function CreateAccount() {
         }
     }, [isReadyToSubmit, firstName, middleName, lastName, phoneNumber, email, pin, confirmPin, dateOfBirth]);
 
-    // myMethod(arg1, arg2);
-
-    const [allAccounts, setAllAccounts] = useState([]);
-
-    useEffect(() => {
-
-        axios.get('http://localhost:8080/api/accounts')
-            .then((response) => setAllAccounts(response.data))
-            .catch((error) => console.log(error));
-
-    }, []);
-
-    const columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'firstName', headerName: 'First name', width: 130, sortable: false, },
-        { field: 'middleName', headerName: 'Middle name', width: 130 },
-        { field: 'lastName', headerName: 'Last name', width: 130 },
-        { field: 'dateOfBirth', headerName: 'Date of Birth', width: 130 },
-        { field: 'phoneNumber', headerName: 'Phone Number', width: 130 },
-        { field: 'email', headerName: 'Email', width: 200 },
-        { field: 'pin', headerName: 'Pin', width: 130 }, //, valueGetter: (params) => `${'*'.repeat(params.row.pin.length)}`},
-        { field: 'balance', headerName: 'Balance', width: 130, sortable: false, },
-        { field: 'openingDate', headerName: 'Opening Date', width: 130 },
-    ];
-
     return (
         <div>
-            <Header/>
             <p>Hello, user!</p>
             <p>Please fill the following form to create an account on our money transfer app.</p>
             <div>
@@ -116,18 +90,8 @@ function CreateAccount() {
                            onChange={(event) => setConfirmPin(event.target.value)}/>
                 <Button variant="contained" onClick={() => setIsReadyToSubmit(true)}>Create Account</Button>
             </div>
-
-            <div style={{ height: 400, width: '100%', marginTop: '30px' }}>
-                <DataGrid
-                    columns={columns}
-                    rows={allAccounts}
-                    pageSize={10}
-                    rowsPerPageOptions={[10]}
-                    checkboxSelection
-                />
-            </div>
         </div>
     );
 }
 
-export default App;
+export default CreateAccount;
