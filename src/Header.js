@@ -6,11 +6,13 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import {useNavigate} from 'react-router-dom';
 
 export default function Header() {
+    const navigate = useNavigate();
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{flexGrow: 1}}>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton
@@ -18,15 +20,15 @@ export default function Header() {
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}
+                        sx={{mr: 2}}
                     >
-                        <AccountBalanceIcon />
+                        <AccountBalanceIcon/>
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                         ACT Money Transfer
                     </Typography>
-                    <Button variant="contained" href="/">List Accounts</Button>
-                    <Button variant="contained" href="/create">Create Account</Button>
+                    <Button variant="contained" onClick={() => navigate('/')}>List Accounts</Button>
+                    <Button variant="contained" onClick={() => navigate('/create')}>Create Account</Button>
                 </Toolbar>
             </AppBar>
         </Box>

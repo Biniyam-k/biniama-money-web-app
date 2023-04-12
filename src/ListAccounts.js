@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
-
 import {DataGrid} from '@mui/x-data-grid';
-
 import axios from "axios";
-
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import {API_BASE_URL} from "./constants";
 
 function ListAccounts() {
 
@@ -12,7 +9,7 @@ function ListAccounts() {
 
     useEffect(() => {
 
-        axios.get('http://localhost:8080/api/accounts')
+        axios.get(`${API_BASE_URL}/api/accounts`)
             .then((response) => setAllAccounts(response.data))
             .catch((error) => console.log(error));
 
