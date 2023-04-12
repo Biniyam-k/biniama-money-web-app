@@ -2,9 +2,6 @@ import React, {useEffect, useState} from 'react';
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { DataGrid } from '@mui/x-data-grid';
-
-import Header from "./Header";
 import axios from "axios";
 
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -35,6 +32,8 @@ function CreateAccount() {
             } else {
                 //api call
                 console.log(`ready for api call`);
+                //TODO: replace with actual date picker
+                setDateOfBirth('1990-01-01');
 
                 axios.post('http://localhost:8080/api/accounts', {
                     'firstName': firstName,
